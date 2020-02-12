@@ -44,23 +44,27 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>GitHub UserCard</h1>
+        <h1>My GitHub Card</h1>
         <UserCard 
         name={this.state.user.name} 
         location={this.state.user.location} 
         avatar={this.state.user.avatar_url} 
         followers={this.state.user.followers} 
         following={this.state.user.following}/>
+        <div className="line"></div>
+        <br/>
         <h2>Followers</h2>
   {/* mapping through followers and displaying data from each */}
         {this.state.follower.map(person => {
           return (
-            <div className="follower-card">
-              <div className="followers">
-                <img src={person.avatar_url}/>
-                <h2>{person.login}</h2>
-                <a href={person.html_url}>GitHub Profile</a>
-              </div>  
+            <div className="all-cards">
+              <div className="follower-card">
+                <div className="info">
+                  <img src={person.avatar_url}/>
+                  <h2>{person.login}</h2>
+                  <a href={person.html_url}>GitHub Profile</a>
+                </div>  
+              </div>
             </div>
           )
         })}
